@@ -124,3 +124,7 @@ PersonCl.prototype.greet = function () {
   return `Hey ${this.firstName}`;
 };
 console.log(jessica.greet());
+
+//1. classes are not hoisted
+//2. Classes are first class citizens
+//3. the body of class is executed in strict mode
