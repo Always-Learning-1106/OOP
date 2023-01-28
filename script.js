@@ -59,30 +59,68 @@
 // console.log(arr.__proto__);
 
 // console.dir((x) => x + 1);
-const Car = function (make, speed) {
-  this.make = make;
-  this.speed = speed;
+// const Car = function (make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
+
+// Car.prototype.accelerate = function () {
+//   return (this.speed += 10);
+// };
+// Car.prototype.brake = function () {
+//   return (this.speed -= 5);
+// };
+// const lambo = new Car("lambo", 40);
+// const ferrari = new Car("Ferarri", 100);
+
+// console.log(lambo.speed);
+// console.log(lambo.accelerate());
+// console.log(lambo.accelerate());
+// console.log(lambo.accelerate());
+// console.log(lambo.brake());
+// console.log(lambo.brake());
+
+// console.log(ferrari.accelerate());
+// console.log(ferrari.accelerate());
+// console.log(ferrari.brake());
+// console.log(ferrari.accelerate());
+// console.log(ferrari.accelerate());
+// console.log(ferrari.brake());
+
+//class expression
+const PersonCh = class {
+  constructor(lastName, carType, speed) {
+    this.lastName = lastName;
+    this.carType = carType;
+    this.speed = speed;
+  }
+  speedUp() {
+    return (this.speed += 10);
+  }
 };
 
-Car.prototype.accelerate = function () {
-  return (this.speed += 10);
-};
-Car.prototype.brake = function () {
-  return (this.speed -= 5);
-};
-const lambo = new Car("lambo", 40);
-const ferrari = new Car("Ferarri", 100);
+const bob = new PersonCh("James", "Ford", 25);
+console.log(bob);
+PersonCh.prototype.accelerate = 25;
+console.log(bob.speedUp());
+console.log(bob.speedUp());
+console.log(bob.speedUp());
+//class declaration
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  calcAge() {
+    return 2023 - this.birthYear;
+  }
+}
+const jessica = new PersonCl("Jessica", 1999);
+console.log(jessica);
 
-console.log(lambo.speed);
-console.log(lambo.accelerate());
-console.log(lambo.accelerate());
-console.log(lambo.accelerate());
-console.log(lambo.brake());
-console.log(lambo.brake());
+console.log(jessica.calcAge());
 
-console.log(ferrari.accelerate());
-console.log(ferrari.accelerate());
-console.log(ferrari.brake());
-console.log(ferrari.accelerate());
-console.log(ferrari.accelerate());
-console.log(ferrari.brake());
+PersonCl.prototype.greet = function () {
+  return `Hey ${this.firstName}`;
+};
+console.log(jessica.greet());
