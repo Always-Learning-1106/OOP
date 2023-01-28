@@ -36,3 +36,24 @@ Person.prototype.calcAge = function () {
 // console.log(jonas.__proto__);
 Person.prototype.species = "homo sapiens";
 // console.log(gwen, jack);
+const glenn = new Person("Glenn", 1983);
+// console.log(glenn.calcAge());
+glenn.calcAge();
+// this just links glenn to the Person class prototype
+console.log(glenn.__proto__);
+//Object.prototype is top of prototype chain
+console.log(glenn.__proto__.__proto__);
+//This returns null because you can't go higher than the Object.prototype
+console.log(glenn.__proto__.__proto__.__proto__);
+
+console.dir(Person.prototype.constructor);
+const arr = [1, 2, 1, 2, 1, 2, 1, 2, 1, 2]; // same as new Array === []
+console.log(arr.__proto__);
+console.log(arr.__proto__ === Array.prototype);
+console.log(arr.__proto__.__proto__);
+console.log(arr);
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+console.log(arr.unique());
+console.log(arr.__proto__);
