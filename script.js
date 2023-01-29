@@ -88,43 +88,84 @@
 // console.log(ferrari.brake());
 
 //class expression
-const PersonCh = class {
-  constructor(lastName, carType, speed) {
-    this.lastName = lastName;
-    this.carType = carType;
-    this.speed = speed;
-  }
-  speedUp() {
-    return (this.speed += 10);
-  }
-};
+// const PersonCh = class {
+//   constructor(lastName, carType, speed) {
+//     this.lastName = lastName;
+//     this.carType = carType;
+//     this.speed = speed;
+//   }
+//   speedUp() {
+//     return (this.speed += 10);
+//   }
+// };
 
-const bob = new PersonCh("James", "Ford", 25);
-console.log(bob);
-PersonCh.prototype.accelerate = 25;
-console.log(bob.speedUp());
-console.log(bob.speedUp());
-console.log(bob.speedUp());
-//class declaration
-class PersonCl {
-  constructor(firstName, birthYear) {
-    this.firstName = firstName;
-    this.birthYear = birthYear;
-  }
-  calcAge() {
-    return 2023 - this.birthYear;
-  }
-}
-const jessica = new PersonCl("Jessica", 1999);
-console.log(jessica);
+// const bob = new PersonCh("James", "Ford", 25);
+// console.log(bob);
+// PersonCh.prototype.accelerate = 25;
+// console.log(bob.speedUp());
+// console.log(bob.speedUp());
+// console.log(bob.speedUp());
+// //class declaration
+// class PersonCl {
+//   constructor(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   }
+//   calcAge() {
+//     return 2023 - this.birthYear;
+//   }
+// }
+// const jessica = new PersonCl("Jessica", 1999);
+// console.log(jessica);
 
-console.log(jessica.calcAge());
+// console.log(jessica.calcAge());
 
-PersonCl.prototype.greet = function () {
-  return `Hey ${this.firstName}`;
-};
-console.log(jessica.greet());
+// PersonCl.prototype.greet = function () {
+//   return `Hey ${this.firstName}`;
+// };
+// console.log(jessica.greet());
 
 //1. classes are not hoisted
 //2. Classes are first class citizens
 //3. the body of class is executed in strict mode
+// const nums = [2, 7, 11, 15];
+// const target = 9;
+// var twoSum = function (nums, target) {
+// const arr = nums.map((num, i) => {
+//   const answer = [];
+//   if (nums[i] + nums[i + 1] === target) {
+//     answer.push(nums[num]);
+//     answer.push(nums[num + 1]);
+//     return answer;
+//   } else return -1;
+// });
+// return arr;
+// };
+
+// var twoSum = function (nums, target) {
+//   const arr = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     if (i < nums.length) {
+//       if (nums[i] + nums[i + 1] === target) {
+//         arr.push(i);
+//         arr.push(i + 1);
+//       }
+
+//     }
+//   }
+//   return arr;
+// };
+const nums = [3, 2, 3];
+const target = 6;
+
+var twoSum = function (nums, target) {
+  const firstIndex = nums[0];
+  const arr = [];
+  const reduce = nums.reduce(function (acc, curr, i, arr) {
+    return i;
+  });
+  return reduce;
+};
+console.log(twoSum(nums, target));
+// console.log(nums.indexOf(3));
+// console.log(nums.lastIndexOf(3));
