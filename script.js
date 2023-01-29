@@ -159,12 +159,13 @@ const nums = [3, 2, 3];
 const target = 6;
 
 var twoSum = function (nums, target) {
-  const firstIndex = nums[0];
-  const arr = [];
-  const reduce = nums.reduce(function (acc, curr, i, arr) {
-    return i;
-  });
-  return reduce;
+  const map = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    if (map.has(target - nums[i])) {
+      return [map.get(target - nums[i]), i];
+    }
+    map.set(nums[i], i);
+  }
 };
 console.log(twoSum(nums, target));
 // console.log(nums.indexOf(3));
