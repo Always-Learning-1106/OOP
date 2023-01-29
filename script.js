@@ -155,6 +155,7 @@
 //   }
 //   return arr;
 // };
+//Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 const nums = [3, 2, 3];
 const target = 6;
 
@@ -170,3 +171,12 @@ var twoSum = function (nums, target) {
 console.log(twoSum(nums, target));
 // console.log(nums.indexOf(3));
 // console.log(nums.lastIndexOf(3));
+function twoSum(nums, target) {
+  return nums.reduce((acc, num, index) => {
+    let complement = target - num;
+    if (nums.indexOf(complement) !== -1 && nums.indexOf(complement) !== index) {
+      acc.push(index, nums.indexOf(complement));
+    }
+    return acc;
+  }, []);
+}
