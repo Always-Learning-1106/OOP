@@ -247,8 +247,8 @@ for (let i = 0; i < 4; i++) {
 }
 console.log(addr);
 
-const portfolio = { IBM: 50, INTC: 125, AMD: 300 };
-function addStock(portfolio, stockname, shares) {
+const portfolio = { IBM: { shares: 50, price: 24.97 }, INTC: 125, AMD: 300 };
+function addStock(portfolio, stockname, shares, price) {
   return portfolio[stockname]
     ? (portfolio[stockname] += shares)
     : (portfolio[stockname] = shares);
@@ -263,4 +263,22 @@ console.log(portfolio);
 addStock(portfolio, "REV", 1000);
 console.log(portfolio);
 addStock(portfolio, "REV", 2000);
+console.log(portfolio);
+function getQuote(stockname) {
+  return portfolio[stockname][price];
+}
+function computeValue(portfolio) {
+  let total = 0.0;
+  for (let stockname in portfolio) {
+    let shares = portfolio[stockname];
+    let price = getQuote(stockname);
+    total += shares * price;
+  }
+  return total;
+}
+console.log(portfolio["IBM"]["shares"]);
+console.log(portfolio["IBM"]["price"]);
+addStock(portfolio, "INTC", 400);
+console.log(portfolio);
+addStock(portfolio, "IBM", 100);
 console.log(portfolio);
