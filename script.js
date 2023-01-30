@@ -204,3 +204,22 @@ let a = new Array(); /*Creates an empty Array: same as [] */
 let d = new Date(); /*Creates a date object representing the current time */
 let r =
   new Map(); /*Creates an Map object for key /value mapping... STUDY THESE VERY IMPORTANT****************************************** */
+let o1 = Object.create({ x: 1, y: 2 }); /*o1 inherits properties x a nd y */
+// console.log(o1.x + o1.y); = 3
+
+let o2 =
+  Object.create(
+    null
+  ); /*This creates an object with no prototypes. It's useless don't do it */
+let o3 = Object.create(
+  Object.prototype
+); /*o3 is the samne as {} or new Object(). The ability to create a new object with an arbitrary prototype is a powerful one, and
+we’ll use Object.create() in a number of places throughout this chapter.
+(Object.create() also takes an optional second argument that describes the proper‐
+ties of the new object. This second argument is an advanced feature. One use for Object.create() is when you want to guard against unintended (but
+nonmalicious) modification of an object by a library function that you don’t have
+control over. Instead of passing the object directly to the function, you can pass an
+object that inherits from it. If the function reads properties of that object, it will see
+the inherited values. If it sets properties, however, those writes will not affect the orig‐
+inal object.
+*/
