@@ -282,26 +282,44 @@ let book = {
 // console.log(portfolio);
 // addStock(portfolio, "IBM", 100);
 // console.log(portfolio);
-const portfolio = { IBM: 20 };
+// const portfolio = { IBM: 20 };
 
-const addToPortfolio = function (portfolio, stockname, shares) {
-  portfolio[stockname] = shares;
-  // console.log(portfolio[stockname]);
-  // console.log(portfolio[stockname]["price"]);
-  // console.log(portfolio[stockname]["shares"]);
-};
+// const addToPortfolio = function (portfolio, stockname, shares) {
+//   portfolio[stockname] = shares;
+//   // console.log(portfolio[stockname]);
+//   // console.log(portfolio[stockname]["price"]);
+//   // console.log(portfolio[stockname]["shares"]);
+// };
 
-addToPortfolio(portfolio, "AMD", 100);
+// addToPortfolio(portfolio, "AMD", 100);
 
-const AMD = 99;
-const IBM = 25;
-const INTC = 29;
-addToPortfolio(portfolio, "INTC", 2045);
+// const AMD = 99;
+// const IBM = 25;
+// const INTC = 29;
+// addToPortfolio(portfolio, "INTC", 2045);
 
-const findPrice = function (stock, cost) {
-  return cost * portfolio[stock];
-};
-console.log(portfolio);
-console.log(findPrice("AMD", AMD));
-console.log(findPrice("IBM", IBM));
-console.log(findPrice("INTC", INTC));
+// const findPrice = function (stock, cost) {
+//   return cost * portfolio[stock];
+// };
+// console.log(portfolio);
+// console.log(findPrice("AMD", AMD));
+// console.log(findPrice("IBM", IBM));
+// console.log(findPrice("INTC", INTC));
+
+let o = {}; /*o inherits object methods from Object.prototype */
+o.x = 1; /*and now it has an own property x */
+let p = Object.create(o); /*p inherits properties from o and Object.prototype */
+p.y = 2; /*and has an own property y */
+let q = Object.create(p); /*q inherits properties from p, o, and ... */
+q.z = 3; /*...Object.prototype and has an own property z */
+let f = q.toString(); /*toString is inherited from Object.prototype */
+q.x + q.y; /*=> 3 x and y are inhertied from o and p */
+console.log(q.x + q.y);
+console.log(o, p, q, f);
+
+let unitcircle = { r: 1 }; //An Object to inherit from
+let c = Object.create(unitcircle); //c inherits the property r
+c.x = 1;
+c.y = 1; //c defines 2 properties of its own
+c.r = 2; //c overrides its inherited property
+console.log(unitcircle.r);
