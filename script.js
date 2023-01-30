@@ -156,6 +156,8 @@
 //   return arr;
 // };
 //Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+/*
+*****************************************************STUDY THIS AND UNDERSTAND IT LATER
 const nums = [3, 2, 3];
 const target = 6;
 
@@ -180,3 +182,4 @@ function twoSum(nums, target) {
     return acc;
   }, []);
 }
+*/
