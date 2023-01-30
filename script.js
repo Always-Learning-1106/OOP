@@ -183,3 +183,24 @@ function twoSum(nums, target) {
   }, []);
 }
 */
+// OBJECT LITERALS
+let empty = {}; /*Empty object with no properties*/
+let point = { x: 0, y: 0 }; /* Two numeric properties */
+let p2 = {
+  x: point.x,
+  y: point.y + 1,
+}; /*More complex values using previous objects to store new data in a new object */
+/*console.log(p2); x = 0 and y now equals 1 */
+
+let book = {
+  "main title": "Javascript",
+  subtitle: "The definitive Guide",
+  for: "all audiences",
+  author: { firstName: "David", lastName: "Flanagan" },
+};
+
+let o = new Object(); /*Creates an empty object. Same as {} */
+let a = new Array(); /*Creates an empty Array: same as [] */
+let d = new Date(); /*Creates a date object representing the current time */
+let r =
+  new Map(); /*Creates an Map object for key /value mapping... STUDY THESE VERY IMPORTANT****************************************** */
