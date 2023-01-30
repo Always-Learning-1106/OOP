@@ -184,13 +184,13 @@ function twoSum(nums, target) {
 }
 */
 // OBJECT LITERALS
-let empty = {}; /*Empty object with no properties*/
-let point = { x: 0, y: 0 }; /* Two numeric properties */
-let p2 = {
-  x: point.x,
-  y: point.y + 1,
-}; /*More complex values using previous objects to store new data in a new object */
-/*console.log(p2); x = 0 and y now equals 1 */
+// let empty = {}; /*Empty object with no properties*/
+// let point = { x: 0, y: 0 }; /* Two numeric properties */
+// let p2 = {
+//   x: point.x,
+//   y: point.y + 1,
+// }; /*More complex values using previous objects to store new data in a new object */
+// /*console.log(p2); x = 0 and y now equals 1 */
 
 let book = {
   "main title": "Javascript",
@@ -199,27 +199,68 @@ let book = {
   author: { firstName: "David", lastName: "Flanagan" },
 };
 
-let o = new Object(); /*Creates an empty object. Same as {} */
-let a = new Array(); /*Creates an empty Array: same as [] */
-let d = new Date(); /*Creates a date object representing the current time */
-let r =
-  new Map(); /*Creates an Map object for key /value mapping... STUDY THESE VERY IMPORTANT****************************************** */
-let o1 = Object.create({ x: 1, y: 2 }); /*o1 inherits properties x a nd y */
-// console.log(o1.x + o1.y); = 3
+// let o = new Object(); /*Creates an empty object. Same as {} */
+// let a = new Array(); /*Creates an empty Array: same as [] */
+// let d = new Date(); /*Creates a date object representing the current time */
+// let r =
+//   new Map(); /*Creates an Map object for key /value mapping... STUDY THESE VERY IMPORTANT****************************************** */
+// let o1 = Object.create({ x: 1, y: 2 }); /*o1 inherits properties x a nd y */
+// // console.log(o1.x + o1.y); = 3
 
-let o2 =
-  Object.create(
-    null
-  ); /*This creates an object with no prototypes. It's useless don't do it */
-let o3 = Object.create(
-  Object.prototype
-); /*o3 is the samne as {} or new Object(). The ability to create a new object with an arbitrary prototype is a powerful one, and
-we’ll use Object.create() in a number of places throughout this chapter.
-(Object.create() also takes an optional second argument that describes the proper‐
-ties of the new object. This second argument is an advanced feature. One use for Object.create() is when you want to guard against unintended (but
-nonmalicious) modification of an object by a library function that you don’t have
-control over. Instead of passing the object directly to the function, you can pass an
-object that inherits from it. If the function reads properties of that object, it will see
-the inherited values. If it sets properties, however, those writes will not affect the orig‐
-inal object.
-*/
+// let o2 =
+//   Object.create(
+//     null
+//   ); /*This creates an object with no prototypes. It's useless don't do it */
+// let o3 = Object.create(
+//   Object.prototype
+// ); /*o3 is the samne as {} or new Object(). The ability to create a new object with an arbitrary prototype is a powerful one, and
+// we’ll use Object.create() in a number of places throughout this chapter.
+// (Object.create() also takes an optional second argument that describes the proper‐
+// ties of the new object. This second argument is an advanced feature. One use for Object.create() is when you want to guard against unintended (but
+// nonmalicious) modification of an object by a library function that you don’t have
+// control over. Instead of passing the object directly to the function, you can pass an
+// object that inherits from it. If the function reads properties of that object, it will see
+// the inherited values. If it sets properties, however, those writes will not affect the orig‐
+// inal object.
+// */
+
+let o = { x: "Don't change this value" };
+// library.function(
+//   Object.create(o)); /*Guards against accidental modifcations. To understand why this works, you need to know how properties are queried and set
+// in JavaScript.*/
+
+let author = book.author;
+let name = author.surname;
+let title = book["main title"];
+book.edition = 7; /*Create an addition property of book */
+book["main title"] = "ECMAScript";
+// Object.property = object["property"];
+let addr = "";
+let customer = {
+  address0: `9137 rockrose`,
+  address1: `9138 rockrose`,
+  address2: `9136 rockrose`,
+  address3: `9134 rockrose`,
+};
+for (let i = 0; i < 4; i++) {
+  addr += customer[`address${i}`] + "\n";
+}
+console.log(addr);
+
+const portfolio = { IBM: 50, INTC: 125, AMD: 300 };
+function addStock(portfolio, stockname, shares) {
+  return portfolio[stockname]
+    ? (portfolio[stockname] += shares)
+    : (portfolio[stockname] = shares);
+}
+
+console.log(addStock(portfolio, "SPY", 100));
+console.log(portfolio);
+addStock(portfolio, "INTC", 450);
+console.log(portfolio);
+addStock(portfolio, "INTC", 25);
+console.log(portfolio);
+addStock(portfolio, "REV", 1000);
+console.log(portfolio);
+addStock(portfolio, "REV", 2000);
+console.log(portfolio);
