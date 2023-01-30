@@ -224,61 +224,84 @@ let book = {
 // inal object.
 // */
 
-let o = { x: "Don't change this value" };
-// library.function(
-//   Object.create(o)); /*Guards against accidental modifcations. To understand why this works, you need to know how properties are queried and set
-// in JavaScript.*/
+// let o = { x: "Don't change this value" };
+// // library.function(
+// //   Object.create(o)); /*Guards against accidental modifcations. To understand why this works, you need to know how properties are queried and set
+// // in JavaScript.*/
 
-let author = book.author;
-let name = author.surname;
-let title = book["main title"];
-book.edition = 7; /*Create an addition property of book */
-book["main title"] = "ECMAScript";
-// Object.property = object["property"];
-let addr = "";
-let customer = {
-  address0: `9137 rockrose`,
-  address1: `9138 rockrose`,
-  address2: `9136 rockrose`,
-  address3: `9134 rockrose`,
+// let author = book.author;
+// let name = author.surname;
+// let title = book["main title"];
+// book.edition = 7; /*Create an addition property of book */
+// book["main title"] = "ECMAScript";
+// // Object.property = object["property"];
+// let addr = "";
+// let customer = {
+//   address0: `9137 rockrose`,
+//   address1: `9138 rockrose`,
+//   address2: `9136 rockrose`,
+//   address3: `9134 rockrose`,
+// };
+// for (let i = 0; i < 4; i++) {
+//   addr += customer[`address${i}`] + "\n";
+// }
+// console.log(addr);
+
+// const portfolio = { IBM: { shares: 50, price: 24.97 }, INTC: 125, AMD: 300 };
+// function addStock(portfolio, stockname, shares, price) {
+//   return portfolio[stockname]
+//     ? (portfolio[stockname] += shares)
+//     : (portfolio[stockname] = shares);
+// }
+
+// console.log(addStock(portfolio, "SPY", 100));
+// console.log(portfolio);
+// addStock(portfolio, "INTC", 450);
+// console.log(portfolio);
+// addStock(portfolio, "INTC", 25);
+// console.log(portfolio);
+// addStock(portfolio, "REV", 1000);
+// console.log(portfolio);
+// addStock(portfolio, "REV", 2000);
+// console.log(portfolio);
+// function getQuote(stockname) {
+//   return portfolio[stockname][price];
+// }
+// function computeValue(portfolio) {
+//   let total = 0.0;
+//   for (let stockname in portfolio) {
+//     let shares = portfolio[stockname];
+//     let price = getQuote(stockname);
+//     total += shares * price;
+//   }
+//   return total;
+// }
+// console.log(portfolio["IBM"]["shares"]);
+// console.log(portfolio["IBM"]["price"]);
+// addStock(portfolio, "INTC", 400);
+// console.log(portfolio);
+// addStock(portfolio, "IBM", 100);
+// console.log(portfolio);
+const portfolio = { IBM: 20 };
+
+const addToPortfolio = function (portfolio, stockname, shares) {
+  portfolio[stockname] = shares;
+  // console.log(portfolio[stockname]);
+  // console.log(portfolio[stockname]["price"]);
+  // console.log(portfolio[stockname]["shares"]);
 };
-for (let i = 0; i < 4; i++) {
-  addr += customer[`address${i}`] + "\n";
-}
-console.log(addr);
 
-const portfolio = { IBM: { shares: 50, price: 24.97 }, INTC: 125, AMD: 300 };
-function addStock(portfolio, stockname, shares, price) {
-  return portfolio[stockname]
-    ? (portfolio[stockname] += shares)
-    : (portfolio[stockname] = shares);
-}
+addToPortfolio(portfolio, "AMD", 100);
 
-console.log(addStock(portfolio, "SPY", 100));
+const AMD = 99;
+const IBM = 25;
+const INTC = 29;
+addToPortfolio(portfolio, "INTC", 2045);
+
+const findPrice = function (stock, cost) {
+  return cost * portfolio[stock];
+};
 console.log(portfolio);
-addStock(portfolio, "INTC", 450);
-console.log(portfolio);
-addStock(portfolio, "INTC", 25);
-console.log(portfolio);
-addStock(portfolio, "REV", 1000);
-console.log(portfolio);
-addStock(portfolio, "REV", 2000);
-console.log(portfolio);
-function getQuote(stockname) {
-  return portfolio[stockname][price];
-}
-function computeValue(portfolio) {
-  let total = 0.0;
-  for (let stockname in portfolio) {
-    let shares = portfolio[stockname];
-    let price = getQuote(stockname);
-    total += shares * price;
-  }
-  return total;
-}
-console.log(portfolio["IBM"]["shares"]);
-console.log(portfolio["IBM"]["price"]);
-addStock(portfolio, "INTC", 400);
-console.log(portfolio);
-addStock(portfolio, "IBM", 100);
-console.log(portfolio);
+console.log(findPrice("AMD", AMD));
+console.log(findPrice("IBM", IBM));
+console.log(findPrice("INTC", INTC));
